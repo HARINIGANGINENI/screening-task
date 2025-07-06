@@ -1,0 +1,263 @@
+:root {
+  --pink: #ff6b82;
+  --light-gray: #f9f9f9;
+  --dark: #222;
+  --gray: #aaa;
+  --radius: 10px;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #fff;
+  color: var(--dark);
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  margin: 0;
+}
+
+.container {
+  width: 343px;
+  background: white;
+  padding: 1rem;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.heading-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.heading-wrapper::before,
+.heading-wrapper::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #ccc;
+}
+
+.heading {
+  color: var(--pink);
+  font-weight: bold;
+  font-size: 1.5rem;
+  padding: 0 1rem;
+}
+
+.offer-card {
+  border: 1px solid #ccc;
+  border-radius: var(--radius);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.offer-card.popular {
+  border: 2px solid var(--pink);
+}
+
+.offer-card.active {
+  box-shadow: 0 0 0 2px var(--pink);
+  background: #fff5f7;
+}
+
+.offer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.offer-content > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.offer-content > div:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.offer-card input[type="radio"] {
+  position: absolute;
+  left: 1rem;
+  top: 37px;
+  transform: translateY(-50%) scale(1.2);
+  margin: 0;
+  accent-color: #ff6b82;
+}
+
+.unit {
+  font-weight: bold;
+  margin-left: 2rem;
+}
+
+.badge {
+  background: var(--pink);
+  color: #fff;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 1rem;
+  color: var(--dark);
+}
+
+.old-price {
+  color: var(--gray);
+  text-decoration: line-through;
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+}
+
+.description {
+  font-size: 0.9rem;
+  margin-left: 2rem;
+  color: var(--gray);
+}
+
+.tag {
+  position: absolute;
+  top: -11px;
+  right: 12px;
+  background: var(--pink);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border-radius: 4px;
+  display: inline-block;
+  z-index: 2;
+}
+
+/* Left triangle corner */
+.tag::before {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: -7px;
+  width: 0;
+  height: 0;
+  border-top: 8px solid #d7445b;
+  border-left: 8px solid transparent;
+  transform: rotate(90deg);
+}
+
+/* Right triangle corner */
+.tag::after {
+  content: "";
+  position: absolute;
+  top: 1px;
+  right: -7px;
+  width: 0;
+  height: 0;
+  border-top: 8px solid #d7445b;
+  border-right: 8px solid transparent;
+  transform: rotate(-90deg);
+}
+
+.offer-card.popular .tag {
+  display: block;
+}
+
+.grid-selects {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding-left: 2rem;
+  width: 100%;
+}
+
+.select-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.select-row span {
+  min-width: 25px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+select {
+  padding: 0.3rem 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  min-width: 80px;
+}
+
+.summary {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  align-items: center;
+}
+
+.delivery {
+  color: var(--pink);
+  margin: 0;
+}
+
+.total {
+  margin: 0;
+  color: var(--dark);
+}
+
+.add-btn {
+  width: 100%;
+  margin-top: 1rem;
+  background: var(--pink);
+  color: white;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.add-btn:hover {
+  background: #e55a72;
+}
+
+.footer {
+  margin-top: 1rem;
+  text-align: end;
+  font-size: 0.8rem;
+  color: gray;
+}
+
+/* Hide grid-selects by default, show only on active cards */
+.grid-selects {
+  display: none;
+}
+
+.offer-card.active .grid-selects {
+  display: flex;
+  flex-direction: column;
+}
+.dropdown-headings {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.3rem;
+  padding-left: 2rem; 
+  padding-right: 1rem;
+}
+
+.heading-label {
+  font-size: 0.75rem;
+  font-weight: bold;
+  width: 50%;
+}
